@@ -13,15 +13,13 @@
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet"
-
+ <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
  <%
  String duongDanIndex = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 	+ request.getContextPath();
  %>
- 
-	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-	<link href="<%=duongDanIndex%>/css/sidebar.css" rel="stylesheet">
+<link href="<%=duongDanIndex%>/css/sidebar.css" rel="stylesheet">
+
 <title>Quản lý nhân viên</title>
 </head>
 <body>

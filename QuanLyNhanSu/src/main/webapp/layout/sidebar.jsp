@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
- <%
- String duongDan = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-	+ request.getContextPath();
- %>
+<%
+String duongDan = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+		+ request.getContextPath();
+%>
 <div class="sidebar" id="side_nav">
 	<div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
 		<h1 class="fs-4">
@@ -36,14 +36,30 @@
 		</a>
 			<ul class="submenu">
 				<!-- Submenu -->
-				<li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+				<li><a href="<%=duongDan%>/ktkl?action=listKT"
+					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fal fa-sub-item-icon"></i> Khen thưởng</a></li>
-				<li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+				<li><a href="<%=duongDan%>/ktkl?action=listKL"
+					class="text-decoration-none px-3 py-2 d-block"><i
 						class="fal fa-sub-item-icon"></i> Kỷ luật</a></li>
 			</ul></li>
-		<li class=""><a href="#"
-			class="text-decoration-none px-3 py-2 d-block"><i
-				class="fal fa-envelope-open-text"></i> Khiếu nại</a></li>
+		<li class="has-submenu"><a href="#"
+			class="text-decoration-none px-3 py-2 d-block"> <i
+				class="fal fa-users"></i> Khiếu nại
+		</a>
+			<ul class="submenu">
+				<!-- Submenu -->
+				<li><a href="<%=duongDan%>/khieunai?action=listKNchoD"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fal fa-sub-item-icon"></i> Gửi khiếu nại</a></li>
+				<li><a href="<%=duongDan%>/khieunai?action=listKNdaD"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fal fa-sub-item-icon"></i> Khiếu nại được duyệt</a></li>
+				<li><a href="<%=duongDan%>/khieunai?action=listKNchuaD"
+					class="text-decoration-none px-3 py-2 d-block"><i
+						class="fal fa-sub-item-icon"></i> Duyệt khiếu nại</a></li>
+			</ul></li>
+
 		<li class="has-submenu"><a href="#"
 			class="text-decoration-none px-3 py-2 d-block"> <i
 				class="fal fa-users"></i> Chi nhánh - Phòng ban
@@ -62,12 +78,12 @@
 			<ul class="submenu">
 				<!-- Submenu -->
 				<li id="dsnv"><a
-					href="<%=duongDan %>/nhanviencontrol?action=list"
-					class="text-decoration-none px-3 py-2 d-block">	 <i
+					href="<%=duongDan%>/nhanviencontrol?action=list"
+					class="text-decoration-none px-3 py-2 d-block"> <i
 						class="fal fa-sub-item-icon"></i>Danh sách nhân viên
 				</a></li>
 				<li id="themnv"><a
-					href="<%=duongDan %>/nhanviencontrol?action=themnhanvien"
+					href="<%=duongDan%>/nhanviencontrol?action=themnhanvien"
 					class="text-decoration-none px-3 py-2 d-block"> <i
 						class="fal fa-sub-item-icon"></i> Thêm nhân viên
 				</a></li>
@@ -77,4 +93,3 @@
 				class="fal fa-envelope-open-text"></i>Phân quyền</a></li>
 	</ul>
 </div>
-
