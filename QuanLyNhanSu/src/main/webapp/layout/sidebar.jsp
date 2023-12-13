@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+ <%
+ String duongDan = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+	+ request.getContextPath();
+ %>
 <div class="sidebar" id="side_nav">
 	<div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
 		<h1 class="fs-4">
@@ -57,12 +61,16 @@
 		</a>
 			<ul class="submenu">
 				<!-- Submenu -->
-				<li id="dsnv"><a href="<%=request.getContextPath()%>/nhanviencontrol"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fal fa-sub-item-icon"></i>Danh sách nhân viên</a></li>
-				<li id="themnv"><a href="#"
-					class="text-decoration-none px-3 py-2 d-block"><i
-						class="fal fa-sub-item-icon"></i> Thêm nhân viên</a></li>
+				<li id="dsnv"><a
+					href="<%=duongDan %>/nhanviencontrol?action=list"
+					class="text-decoration-none px-3 py-2 d-block">	 <i
+						class="fal fa-sub-item-icon"></i>Danh sách nhân viên
+				</a></li>
+				<li id="themnv"><a
+					href="<%=duongDan %>/nhanviencontrol?action=themnhanvien"
+					class="text-decoration-none px-3 py-2 d-block"> <i
+						class="fal fa-sub-item-icon"></i> Thêm nhân viên
+				</a></li>
 			</ul></li>
 		<li class=""><a href="#"
 			class="text-decoration-none px-3 py-2 d-block"><i

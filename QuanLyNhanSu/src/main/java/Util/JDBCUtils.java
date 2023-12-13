@@ -1,13 +1,12 @@
 package Util;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.sql.Date;
 
 public class JDBCUtils {
-
 	private static String jdbcURL = "jdbc:mysql://localhost:3306/web?";
 	private static String jdbcUsername = "root";
 	private static String jdbcPassword = "";
@@ -27,9 +26,9 @@ public class JDBCUtils {
 		return connection;
 	}
 
-	public static Date getSQLDate(LocalDate date) {
-		return java.sql.Date.valueOf(date);
-	}
+    public static Date getSQLDate(LocalDate date) {
+        return java.sql.Date.valueOf(date);
+    }
 
 	public static LocalDate getUtilDate(Date sqlDate) {
 		return sqlDate.toLocalDate();

@@ -60,7 +60,6 @@
 								</div>
 
 							</div>
-
 							<div>
 								<p class="mb-0">
 									Don't have an account? <a href="#!"

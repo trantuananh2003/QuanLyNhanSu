@@ -21,9 +21,12 @@
 	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 <link href="../css/sidebar.css" rel="stylesheet" type="text/css" />
 <link href="./css/sidebar.css" rel="stylesheet" type="text/css" />
-
 </head>
 <body>
+	<%
+	String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ request.getContextPath();
+	%>
 	<div class="main-container d-flex">
 		<jsp:include page="../layout/sidebar.jsp"></jsp:include>
 		<div class="content">
@@ -31,37 +34,65 @@
 				<jsp:include page="../layout/navbar.jsp"></jsp:include>
 				<div class="container-fluid">
 					<h1>Danh sách nhân viên</h1>
-					<h1>
-						<a href="<%=request.getContextPath()%>/list" class="nav-link">load</a>
-					</h1>
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th>Mã nhân viên</th>
-								<th>Họ Tên</th>
-								<th>Lương cơ bản</th>
-								<th>Email công việc</th>
-								<th>Trạng thái</th>
-								<th>Tài khoản</th>
-								<th>Thao tác</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="nhanvien" items="${listNhanVien}">
+					<div class="row my-3">
+						<div class="col">
+							<a
+								href="<%=request.getContextPath()%>/nhanviencontrol?action=themnhanvien"
+								class="btn btn-primary" tabindex="-1" role="button"
+								aria-disabled="true">Thêm nhân viên</a>
+						</div>
+						<div class="col-md-4 offset-md-4 d-flex">
+							<div class="ms-auto">
+								<button type="button" class="btn btn-outline-success">Import
+									Excel</button>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<table class="table table-bordered">
+							<thead>
 								<tr>
-									<td><c:out value="${nhanvien.maNV}" /></td>
-									<td><c:out value="${nhanvien.hoTen}" /></td>
-									<td><fmt:formatNumber value="${nhanvien.luongCoBan}"
-											type="number" pattern="#,##0.00" /></td>
-									<td><c:out value="${nhanvien.emailCongViec}" /></td>
-									<td><c:out value="${nhanvien.trangThai}" /></td>
-									<td><a href="edit?id=<c:out value='${nhanvien.maNV}' />">Edit</a>
-										&nbsp;&nbsp;&nbsp;&nbsp; <a
-										href="delete?id=<c:out value='${nhanvien.maNV}' />">Delete</a></td>
+									<th>Mã nhân viên</th>
+									<th>Họ Tên</th>
+									<th>Lương cơ bản</th>
+									<th>Email công việc</th>
+									<th>Trạng thái</th>
+									<th>Chi tiết thông tin</th>
+									<th>Ảnh cá nhân</th>
+									<th>Thao tác</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach var="nhanvien" items="${listNhanVien}">
+									<tr>
+										<td><c:out value="${nhanvien.maNV}" /></td>
+										<td><c:out value="${nhanvien.hoTen}" /></td>
+										<td><fmt:formatNumber value="${nhanvien.luongCoBan}"
+												type="number" pattern="#,##0 VNĐ" /></td>
+										<td><c:out value="${nhanvien.emailCongViec}" /></td>
+										<td><c:out value="${nhanvien.trangThai}" /></td>
+										<td>
+											<a href="<%=url %>/hosocontrol?action=edit&manv=<c:out value='${nhanvien.maNV}'/>">Hồ sơ</a>
+												<br>
+											<a href="<%=url %>/hopdongcontrol?action=edit&manv=<c:out value='${nhanvien.maNV}'/>">Hợp đồng</a>
+												<br>
+											<a href="<%=url %>/quatrinhcongtaccontrol?action=edit&manv=<c:out value='${nhanvien.maNV}'/>">Quá trình công tác</a>	
+												<br>
+											<a href="Xem?id=<c:out value='${nhanvien.maNV}' />">Tài khoản</a>	
+												<br>											
+										</td>
+										<td><img
+											src="<%=url%>/AnhCaNhan/<c:out value='${nhanvien.duongDanAnh}' />"
+											width="100" height="80" /></td>
+										<td><a
+											href="<%=url %>/nhanviencontrol?action=edit&manv=<c:out value='${nhanvien.maNV}' />">Edit</a>
+											&nbsp;&nbsp;&nbsp;&nbsp; <a
+											href="<%=url %>/nhanviencontrol?action=delete&manv=<c:out value='${nhanvien.maNV}' />">Delete</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</main>
 		</div>

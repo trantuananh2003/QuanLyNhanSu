@@ -9,18 +9,18 @@ public class NhanVien implements Serializable {
     private float luongCoBan;
     private String emailCongViec;
     private String trangThai;
-    private byte[] anhCaNhan;  
+    private String duongDanAnh;  
 
-
-    public NhanVien(String maNV, String hoTen, float luongCoBan, String emailCongViec, byte[] anhCaNhan) {
+    public NhanVien(String maNV, String hoTen, float luongCoBan, String emailCongViec,String trangThai ,String duongDanAnh) {
         this.maNV = maNV;
         this.hoTen = hoTen;
         this.luongCoBan = luongCoBan;
         this.emailCongViec = emailCongViec;
-        this.anhCaNhan = anhCaNhan;
+        this.trangThai = trangThai;
+        this.duongDanAnh = duongDanAnh;
     }
     
-    public NhanVien(String maNV, String hoTen, float luongCoBan, String emailCongViec, String trangThai) {
+	public NhanVien(String maNV, String hoTen, float luongCoBan, String emailCongViec, String trangThai) {
         this.maNV = maNV;
         this.hoTen = hoTen;
         this.luongCoBan = luongCoBan;
@@ -67,12 +67,12 @@ public class NhanVien implements Serializable {
 	public void setTrangThai(String trangThai) {
 		this.trangThai = trangThai;
 	}
+	
+    public String getDuongDanAnh() {
+		return duongDanAnh;
+	}
 
-    public byte[] getAnhCaNhan() {
-        return anhCaNhan;
-    }
-
-    public void setAnhCaNhan(byte[] anhCaNhan) {
-        this.anhCaNhan = anhCaNhan;
-    }
+	public void setDuongDanAnh(String duongDanAnh) {
+		this.duongDanAnh = duongDanAnh;
+	}
 }
